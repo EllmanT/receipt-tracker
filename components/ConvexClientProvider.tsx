@@ -48,8 +48,8 @@ export default function ConvexClientProvider({
   return (
     <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
       <SchematicProvider
-      publishableKey={process.env.SCHEMATIC_PUBLISHABLE_KEY!}
-      // publishableKey="api_6jpdoQQCdnA"
+      // publishableKey={process.env.SCHEMATIC_PUBLISHABLE_KEY!}
+      publishableKey="api_6jpdoQQCdnA"
       >
         <SchematicWrapped>
       {children}
