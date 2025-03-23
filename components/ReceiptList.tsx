@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation';
 import { ChevronRight, FileText } from 'lucide-react';
 
 function ReceiptList() {
+    const router = useRouter();
+
     const {user} = useUser();
     
     const receipts = useQuery(api.receipts.getReceipts,{
@@ -48,7 +50,6 @@ function ReceiptList() {
         )
     }
     
-    const router = useRouter()
 
   return (
     <div className='w-full'>
