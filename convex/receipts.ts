@@ -49,22 +49,46 @@ export const storeReceipt = mutation({
 
 export const getReceipts = query({
     args:{
+        userId:v.string(),
+    },
+    handler: async(ctx, args)=>{
+        // Get the receipts
+    //   Only return the receipts for the authenticated user
+    return await ctx.db
+    .query("receipts")
+    .filter((q)=>q.eq(q.field("userId"), args.userId))
+    .order("desc")
+    .collect()
+    }
+})
+
+// Get receipt by id
+
+export const getReceiptById = query({
+    args:{
         id:v.id("receipts"),
     },
     handler: async(ctx, args)=>{
-        // Get the receipt
-        const receipt = await ctx.db.get(args.id);
-        // verify user has access to the receipt
+        // Get the receipts
+    const receipt = await ctx.db.get(args.id);
 
-        if(!receipt){
-            const identity = await ctx.auth.getUserIdentity();
-            if(!identity){
-                throw new Error("Not authorised to access the receipt")
-            }
+    // Verifyuser has access to the receipt
+    if(receipt){
+        const identity = await ctx.auth.getUserIdentity()
+        if(!identity){
+            throw new Error("Not authenticated")
         }
-        return receipt
+        const userId = identity.subject;
+
+        if(receipt.userId !==userId){
+            throw new Error("Not authorized to access this receipt")
+        }
+
+        return receipt;
+    }
     }
 })
+
 
 // Generate the download URL to display to user
 
