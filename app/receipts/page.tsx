@@ -2,7 +2,7 @@ import PDFDropzone from '@/components/PDFDropzone'
 import ReceiptList from '@/components/ReceiptList'
 import React from 'react'
 
-function page() {
+function Page() {
   return (
     <div
     className="container mx-auto py-10 px-4 sm:px-6 lg:px-8"
@@ -16,4 +16,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

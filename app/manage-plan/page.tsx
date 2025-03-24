@@ -1,7 +1,7 @@
 import SchematicComponent from '@/components/schematic/SchematicComponent'
 import React from 'react'
 
-function page() {
+function Page() {
   return (
     <div className='container xl:max-w-5xl mx-auto p-4 md:p-0'>
         <h1 className='text-2xl font-bold mb-4 -scroll-my-8'>Manage Your Plan</h1>
@@ -13,4 +13,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

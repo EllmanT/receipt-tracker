@@ -148,20 +148,7 @@ export const deleteReceipt= mutation({
           if(!receipt){
               throw new Error("Receipt not found");
           }
-          const identity = await ctx.auth.getUserIdentity();
-  
-          if(!identity){
-              throw new Error("Not authenticated")
-          }
-  
-         
-  
-          const userId = identity.subject;
-  
-          if(receipt.userId !==userId){
-              throw new Error("Not authorizzed to delete the receipt")
-          }
-
+      
           //Delelte the file from the storage
 
           await ctx.storage.delete(receipt.fileId);
