@@ -29,10 +29,10 @@ function ReceiptList() {
     if(!receipts){
         return (
             <div className='w-full p-8 text-center'>
-                <div className='animate-spin rounded-full h-10 w-10 botder-t-2 border-b-2 border-blue-500 mx-auto'>
+                <div className='animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500 mx-auto'></div>
                 <p className='text-gray-600 mt-2'>Loading receipts</p>
 
-                </div>
+                
 
 
             </div>
